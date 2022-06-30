@@ -1,6 +1,7 @@
 package com.upchiapas.PooC2_Act1;
 
 import com.upchiapas.PooC2_Act1.models.Cliente;
+import com.upchiapas.PooC2_Act1.models.Mamifero;
 import com.upchiapas.PooC2_Act1.models.Producto;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -50,22 +51,35 @@ public class Veterinaria {
 
     public static void agregarMascota(){
         byte op;
+        String tipoMamifero;
         String nombre;
         String sexo;
         int peso;
         String tipoSangre;
         byte id;
+        int posicion = listaClientes.size();
         System.out.println("Ingrese la mascota del cliente: ");
         System.out.println("1.Mamifero ");
         System.out.println("2.Ave");
         System.out.println("3.Acuático");
+        System.out.println("Ingrese que tipo es la mascota: ");
+        tipoMamifero = entrada.nextLine();
         System.out.println("Ingrese el nombre de la mascota: ");
+        nombre = entrada.nextLine();;
         System.out.println("Sexo: ");
+        sexo = entrada.nextLine();
         System.out.println("Peso: ");
+        peso = entrada.nextInt();
         System.out.println("Tipo de sangre: ");
+        tipoSangre = entrada.nextLine();
         op = entrada.nextByte();
         if (op == 1){
-            listaClientes.get()
+            Mamifero mamifero = new Mamifero(tipoMamifero,);
+            listaClientes.get(posicion).listaAnimales.add();
+        } else if (op ==2) {
+            listaClientes.get(posicion).listaAnimales.add();
+        } else if (op ==3) {
+            listaClientes.get(posicion).listaAnimales.add();
         }
 
     }

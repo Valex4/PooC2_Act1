@@ -1,6 +1,7 @@
 package com.upchiapas.PooC2_Act1.models;
 
 public class Animal{
+    protected String tipoMamifero;
     protected String nombre;
     protected String sexo;
     protected int peso;
@@ -8,6 +9,17 @@ public class Animal{
     protected byte id;
 
     public Animal() {
+    }
+
+    public Animal(String tipoMamifero, String nombre, String sexo, int peso, String tipoSangre, byte id) {
+    }
+
+    public String getTipoMamifero() {
+        return tipoMamifero;
+    }
+
+    public void setTipoMamifero(String tipoMamifero) {
+        this.tipoMamifero = tipoMamifero;
     }
 
     public String getNombre() {
