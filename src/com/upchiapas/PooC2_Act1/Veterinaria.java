@@ -15,19 +15,21 @@ public class Veterinaria {
     static ArrayList<Cliente> listaClientes = new ArrayList<>();
     static Scanner entrada = new Scanner(System.in);
     public static void main(String[] args) {
+        //se crean los objetos de la clase servicio
         Servicio servicio1 = new Servicio("Baño de mascota",300.0f);
         Servicio servicio2 = new Servicio("Consulta medica", 250.0f);
         Servicio servicio3 = new Servicio("Aplicacion de medicamento",50);
         Servicio servicio4 = new Servicio("Inseminacion artificial",680.0f);
-        listaServicios.add(servicio1);
+        listaServicios.add(servicio1); // se agregan los objetos al arraylist
         listaServicios.add(servicio2);
         listaServicios.add(servicio3);
         listaServicios.add(servicio4);
+        //se crean los objetos de productos
         Producto producto1 = new Producto("Alimento",30.0f,"Nupec",100);
         Producto producto2 = new Producto("Collar",75.0f,"Perro consentido",30);
         Producto producto3 = new Producto("Cepillo",45.0f,"Doggy",65);
         Producto producto4 = new Producto("Jabon",80.0f,"Bayer",40);
-        listaProductos.add(producto1);
+        listaProductos.add(producto1); // se agregan los objetos de productos al arraylist
         listaProductos.add(producto2);
         listaProductos.add(producto3);
         listaProductos.add(producto4);
@@ -86,7 +88,7 @@ public class Veterinaria {
         String medicamentoPreventivo;
         String esterilizado;
         int id = 2347;
-        for (int i = 0; i< listaClientes.size(); i++){
+        for (int i = 0; i< listaClientes.size(); i++){ //esto es para que el numero de folio no se repita
            id++;
         }
         String raza;
@@ -126,7 +128,7 @@ public class Veterinaria {
                     System.out.println("Medicamento preventivo: ");
                     medicamentoPreventivo = scanner.nextLine();
                     System.out.println("Esterilizado: ");
-                    esterilizado = scanner.nextLine();
+                    esterilizado = scanner.nextLine(); //creamos el objeto historial clinico el cual metemos dentro de mamifero y mamifero se mete dentro de lista animales
                     HistorialClinico historialMamifero = new HistorialClinico(tipo,nombre,sexo,peso,color,raza,padecimiento,medicamentoPreventivo,esterilizado);
                     Mamifero mamifero = new Mamifero(tipo,nombre,sexo,peso,tipoSangre,id,raza,color,historialMamifero);
                     listaClientes.get(posicion).listaAnimales.add(mamifero);
@@ -144,7 +146,7 @@ public class Veterinaria {
                     System.out.println("Medicamento preventivo: ");
                     medicamentoPreventivo = scanner.nextLine();
                     System.out.println("Esterilizado: ");
-                    esterilizado = scanner.nextLine();
+                    esterilizado = scanner.nextLine();//aqui hace exactamente lo mismo que arriba solo que aqui cambia un poquito
                     HistorialClinico historialAve = new HistorialClinico(tipo,nombre,sexo,peso,color,raza,padecimiento,medicamentoPreventivo,esterilizado);
                     Ave ave = new Ave(tipo,nombre,sexo,peso,tipoSangre,id,historialAve,color);
                     listaClientes.get(posicion).listaAnimales.add(ave);
