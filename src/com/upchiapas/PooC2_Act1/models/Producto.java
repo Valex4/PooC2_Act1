@@ -13,6 +13,7 @@ public class Producto {
         this.stock = stock;
     }
 
+
     public String getNombre() {
         return nombre;
     }

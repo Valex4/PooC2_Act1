@@ -2,7 +2,6 @@ package com.upchiapas.PooC2_Act1;
 
 import com.upchiapas.PooC2_Act1.models.*;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,13 +11,21 @@ public class Veterinaria {
     static ArrayList<Cliente> listaClientes = new ArrayList<>();
     static Scanner entrada = new Scanner(System.in);
     public static void main(String[] args) {
+        Producto producto1 = new Producto("Alimento",30.0f,"Nupec",100);
+        Producto producto2 = new Producto("Collar",75.0f,"Perro consentido",30);
+        Producto producto3 = new Producto("Cepillo",45.0f,"Doggy",65);
+        Producto producto4 = new Producto("Jabon",80.0f,"Bayer",40);
+        listaProductos.add(producto1);
+        listaProductos.add(producto2);
+        listaProductos.add(producto3);
+        listaProductos.add(producto4);
         byte opcion;
         do {
             Scanner teclado = new Scanner(System.in);
             System.out.println("============VETERINARIA===============");
             System.out.println("1. Agregar cliente");
-            System.out.println("2. Agregar Servicio");
-            System.out.println("3. producto");
+            System.out.println("2. Servicio");
+            System.out.println("3. Producto");
             System.out.println("4. Corte caja");
             opcion= teclado.nextByte();
             switch (opcion){
@@ -26,8 +33,10 @@ public class Veterinaria {
                     agregarCliente();
                     break;
                 case 2:
+
                     break;
                 case 3:
+                    menuProductos();
                     break;
 
             }
@@ -151,8 +160,47 @@ public class Veterinaria {
                     System.out.println("Intente de nuevo");
             }
         }while (auxiliar == false);
+    }
+    public static void menuProductos(){
+        Scanner scanner = new Scanner(System.in);
+        int opcionMenu;
+        System.out.println("1. Elegir productos existentes ");
+        System.out.println("2. Agregar productos ");
+        System.out.println("Ingrese la opcion deseada: ");
+        opcionMenu = scanner.nextInt();
+        switch (opcionMenu){
+            case 1:
 
-
+                System.out.println("Los productos existentes son: ");
+                for (int i=0; i < listaProductos.size();i++){
+                    System.out.println((i+1) + ". Nombre: "+ listaProductos.get(i).getNombre()+ " Precio: $"+listaProductos.get(i).getPrecio()+" Marca: "+listaProductos.get(i).getMarca()+" Stock: "+listaProductos.get(i).getStock());
+                }
+                break;
+            case 2:
+                agregarProductos();
+                break;
+            default:
+                System.out.println("Opcion incorrecta");
+                System.out.println("Intente de nuevo");
+        }
+    }
+    public static void agregarProductos(){
+        Scanner scanner = new Scanner(System.in);
+        String nombre;
+        float precio;
+        String marca;
+        int stock;
+        System.out.println("Ingrese el nombre del producto: ");
+        nombre = scanner.nextLine();
+        System.out.println("Ingrese el precio: ");
+        precio = scanner.nextFloat();
+        System.out.println("Ingrese la marca: ");
+        marca = scanner.nextLine();
+        scanner.next();
+        System.out.println("Ingrese el stock: ");
+        stock = scanner.nextInt();
+        Producto nuevoProducto = new Producto(nombre,precio,marca, stock);
+        listaProductos.add(nuevoProducto);
     }
 
 
