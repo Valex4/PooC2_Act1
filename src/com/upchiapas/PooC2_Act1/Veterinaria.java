@@ -115,7 +115,24 @@ public class Veterinaria {
                     raza = "------------";
                     System.out.println("Color: ");
                     color = scanner.nextLine();
-                    System.out.println("Aqui aun no hay nada");
+                    System.out.println("Padecimiento de la mascota: ");
+                    padecimiento = scanner.nextLine();
+                    System.out.println("Medicamento preventivo: ");
+                    medicamentoPreventivo = scanner.nextLine();
+                    System.out.println("Esterilizado: ");
+                    esterilizado = scanner.nextLine();
+                    HistorialClinico historialAve = new HistorialClinico(tipo,nombre,sexo,peso,color,raza,padecimiento,medicamentoPreventivo,esterilizado);
+                    Ave ave = new Ave(tipo,nombre,sexo,peso,tipoSangre,id,historialAve,color);
+                    listaClientes.get(posicion).listaAnimales.add(ave);
+                    for (int i = 0; i< listaClientes.get(posicion).listaAnimales.size(); i++){
+                        System.out.println("Las mascotas del cliente: "+listaClientes.get(posicion).getNombre()+" son: "+listaClientes.get(posicion).listaAnimales.get(i).getTipo());
+                    }
+                    break;
+                case 3:
+                    auxiliar=true;
+                    raza = "------------";
+                    System.out.println("Color: ");
+                    color = scanner.nextLine();
                     System.out.println("Padecimiento de la mascota: ");
                     padecimiento = scanner.nextLine();
                     System.out.println("Medicamento preventivo: ");
@@ -128,10 +145,6 @@ public class Veterinaria {
                     for (int i = 0; i< listaClientes.get(posicion).listaAnimales.size(); i++){
                         System.out.println("Las mascotas del cliente: "+listaClientes.get(posicion).getNombre()+" son: "+listaClientes.get(posicion).listaAnimales.get(i).getTipo());
                     }
-                    break;
-                case 3:
-                    auxiliar=true;
-                    System.out.println("Aqui aun no hay nada 3");
                     break;
                 default:
                     System.out.println("Opcion incorrecta");
