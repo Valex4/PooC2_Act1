@@ -7,6 +7,9 @@ import java.util.Scanner;
 
 
 public class Veterinaria {
+    static float administrador;
+    static float gananciaServicios;
+    static float gananciaProductos;
     static ArrayList<Producto> listaProductos = new ArrayList<>();
     static  ArrayList<Servicio> listaServicios = new ArrayList<>();
     static ArrayList<Cliente> listaClientes = new ArrayList<>();
@@ -47,9 +50,12 @@ public class Veterinaria {
                 case 3:
                     menuProductos();
                     break;
-
+                case 4:
+                    administrador = gananciaServicios + gananciaProductos;
+                    System.out.println("El total de ventas del dia de hoy es: $"+administrador);
+                    break;
             }
-        }while (opcion != 3);
+        }while (opcion != 4);
     }
 
     public static void agregarCliente(){
@@ -179,11 +185,20 @@ public class Veterinaria {
         opcionMenu = scanner.nextInt();
         switch (opcionMenu){
             case 1:
-
+                float cantidad;
+                int op;
+                int auxOp;
                 System.out.println("Los productos existentes son: ");
                 for (int i=0; i < listaProductos.size();i++){
                     System.out.println((i+1) + ". Nombre: "+ listaProductos.get(i).getNombre()+ " Precio: $"+listaProductos.get(i).getPrecio()+" Marca: "+listaProductos.get(i).getMarca()+" Stock: "+listaProductos.get(i).getStock());
                 }
+                System.out.println("Ingrese el numero de la opcion que desea: ");
+                op = scanner.nextInt();
+                System.out.println("Cuantos productos desea: ");
+                cantidad = scanner.nextFloat();
+                auxOp = op-1;
+                gananciaProductos = cantidad * listaProductos.get(auxOp).getPrecio();
+
                 break;
             case 2:
                 agregarProductos();
@@ -213,6 +228,7 @@ public class Veterinaria {
     }
     public static void menuServicios(){
         Scanner scanner = new Scanner(System.in);
+        float ganancia;
         int auxOp;
         int op;
         int opcionM;
@@ -230,7 +246,7 @@ public class Veterinaria {
                 op = scanner.nextInt();
                 auxOp = op-1;
                 System.out.println("Usted ha elegido: "+listaServicios.get(auxOp).getServicio());
-
+                gananciaServicios = listaServicios.get(auxOp).getPrecio();
                 break;
             case 2:
                 agregarServicios();
