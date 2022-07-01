@@ -16,6 +16,10 @@ public class Veterinaria {
         Servicio servicio2 = new Servicio("Consulta medica", 250.0f);
         Servicio servicio3 = new Servicio("Aplicacion de medicamento",50);
         Servicio servicio4 = new Servicio("Inseminacion artificial",680.0f);
+        listaServicios.add(servicio1);
+        listaServicios.add(servicio2);
+        listaServicios.add(servicio3);
+        listaServicios.add(servicio4);
         Producto producto1 = new Producto("Alimento",30.0f,"Nupec",100);
         Producto producto2 = new Producto("Collar",75.0f,"Perro consentido",30);
         Producto producto3 = new Producto("Cepillo",45.0f,"Doggy",65);
@@ -38,7 +42,7 @@ public class Veterinaria {
                     agregarCliente();
                     break;
                 case 2:
-
+                    menuServicios();
                     break;
                 case 3:
                     menuProductos();
@@ -209,6 +213,8 @@ public class Veterinaria {
     }
     public static void menuServicios(){
         Scanner scanner = new Scanner(System.in);
+        int auxOp;
+        int op;
         int opcionM;
         System.out.println("1. Elegir servicios existentes ");
         System.out.println("2. Agregar servicios ");
@@ -216,11 +222,15 @@ public class Veterinaria {
         opcionM = scanner.nextInt();
         switch (opcionM){
             case 1:
-
-                System.out.println("Los productos existentes son: ");
-                for (int i=0; i < listaProductos.size();i++){
-                    System.out.println((i+1) + ". Nombre: "+ listaProductos.get(i).getNombre()+ " Precio: $"+listaProductos.get(i).getPrecio()+" Marca: "+listaProductos.get(i).getMarca()+" Stock: "+listaProductos.get(i).getStock());
+                System.out.println("Los servicios existentes son: ");
+                for (int i=0; i < listaServicios.size();i++){
+                    System.out.println((i+1) + ". Nombre: "+ listaServicios.get(i).getServicio()+ " Precio: $"+listaServicios.get(i).getPrecio());
                 }
+                System.out.println("Ingrese el numero de la opcion que desea: ");
+                op = scanner.nextInt();
+                auxOp = op-1;
+                System.out.println("Usted ha elegido: "+listaServicios.get(auxOp).getServicio());
+
                 break;
             case 2:
                 agregarServicios();
@@ -231,8 +241,19 @@ public class Veterinaria {
         }
     }
     public static void agregarServicios(){
+        Scanner scanner = new Scanner(System.in);
+        String servicio;
+        float precio;
+        System.out.println("Ingrese el servicio: ");
+        servicio = scanner.nextLine();
+        System.out.println("Precio del servicio: ");
+        precio = scanner.nextFloat();
+        Servicio servicioManual = new Servicio(servicio, precio);
+        listaServicios.add(servicioManual);
 
     }
-
+    public static void administrador(){
+        System.out.println("El total de ventas del dia de hoy es: ");
+    }
 
 }
