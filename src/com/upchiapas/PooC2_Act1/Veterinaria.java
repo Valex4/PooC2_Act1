@@ -53,7 +53,6 @@ public class Veterinaria {
                     menuProductos();
                     break;
                 case 4:
-                    administrador = gananciaServicios + gananciaProductos;
                     System.out.println("El total de ventas del dia de hoy es: $"+administrador);
                     break;
             }
@@ -179,6 +178,7 @@ public class Veterinaria {
         }while (auxiliar == false);
     }
     public static void menuProductos(){
+        float dinero;
         Scanner scanner = new Scanner(System.in);
         int opcionMenu;
         System.out.println("1. Elegir productos existentes ");
@@ -199,8 +199,8 @@ public class Veterinaria {
                 System.out.println("Cuantos productos desea: ");
                 cantidad = scanner.nextFloat();
                 auxOp = op-1;
-                gananciaProductos = cantidad * listaProductos.get(auxOp).getPrecio();
-
+                dinero = cantidad * listaProductos.get(auxOp).getPrecio();
+                administrador(0.0f, dinero);
                 break;
             case 2:
                 agregarProductos();
@@ -248,8 +248,9 @@ public class Veterinaria {
                 op = scanner.nextInt();
                 auxOp = op-1;
                 System.out.println("Usted ha elegido: "+listaServicios.get(auxOp).getServicio());
-                gananciaServicios = listaServicios.get(auxOp).getPrecio();
-                break;
+                ganancia = listaServicios.get(auxOp).getPrecio();
+                administrador(ganancia,0.0f);
+               break;
             case 2:
                 agregarServicios();
                 break;
@@ -270,8 +271,12 @@ public class Veterinaria {
         listaServicios.add(servicioManual);
 
     }
-    public static void administrador(){
-        System.out.println("El total de ventas del dia de hoy es: ");
+    public static void administrador(float ganancia1, float ganancia2){
+       float dinero;
+       float ayuda;
+       dinero = ganancia1;
+       ayuda = ganancia2;
+       administrador = dinero+ayuda;
     }
 
 }
