@@ -4,13 +4,11 @@ import java.util.ArrayList;
 
 public class Cliente {
     private String nombre;
-    private int telefono;
     private int folio;
     public ArrayList<Animal> listaAnimales = new ArrayList<>();
 
-    public Cliente(String nombre, int telefono, int folio) {
+    public Cliente(String nombre, int folio) {
         this.nombre = nombre;
-        this.telefono = telefono;
         this.folio = folio;
     }
 
@@ -20,14 +18,6 @@ public class Cliente {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public int getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
     }
 
     public int getFolio() {

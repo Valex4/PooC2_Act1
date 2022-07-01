@@ -1,25 +1,41 @@
 package com.upchiapas.PooC2_Act1.models;
 
 public class Animal{
-    protected String tipoMamifero;
+    protected String tipo;
     protected String nombre;
     protected String sexo;
     protected int peso;
     protected String tipoSangre;
-    protected byte id;
+    protected int id;
+    protected HistorialClinico historialClinico;
 
     public Animal() {
     }
 
-    public Animal(String tipoMamifero, String nombre, String sexo, int peso, String tipoSangre, byte id) {
+    public Animal(String tipo, String nombre, String sexo, int peso, String tipoSangre, int id, HistorialClinico historialClinico) {
+        this.tipo = tipo;
+        this.nombre = nombre;
+        this.sexo = sexo;
+        this.peso = peso;
+        this.tipoSangre = tipoSangre;
+        this.id = id;
+        this.historialClinico = historialClinico;
     }
 
-    public String getTipoMamifero() {
-        return tipoMamifero;
+    public HistorialClinico getHistorialClinico() {
+        return historialClinico;
     }
 
-    public void setTipoMamifero(String tipoMamifero) {
-        this.tipoMamifero = tipoMamifero;
+    public void setHistorialClinico(HistorialClinico historialClinico) {
+        this.historialClinico = historialClinico;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public String getNombre() {
@@ -54,11 +70,11 @@ public class Animal{
         this.tipoSangre = tipoSangre;
     }
 
-    public byte getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(byte id) {
+    public void setId(int id) {
         this.id = id;
     }
 }
