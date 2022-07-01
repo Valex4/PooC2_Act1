@@ -8,8 +8,6 @@ import java.util.Scanner;
 
 public class Veterinaria {
     static float administrador;
-    static float gananciaServicios;
-    static float gananciaProductos;
     static ArrayList<Producto> listaProductos = new ArrayList<>();
     static  ArrayList<Servicio> listaServicios = new ArrayList<>();
     static ArrayList<Cliente> listaClientes = new ArrayList<>();
@@ -92,7 +90,7 @@ public class Veterinaria {
         }
         String raza;
         String color;
-        int posicion = (listaClientes.size()-1);
+        int posicion = (listaClientes.size()-1);//obtener la posicion del cliente que le pertenece
         System.out.println("Ingrese la mascota del cliente: ");
         System.out.println("1.Mamifero ");
         System.out.println("2.Ave");
@@ -248,6 +246,45 @@ public class Veterinaria {
                 op = scanner.nextInt();
                 auxOp = op-1;
                 System.out.println("Usted ha elegido: "+listaServicios.get(auxOp).getServicio());
+                if (op == 2) {
+                    boolean aux = false;
+                    int opAux  = 0;
+                    int folio;
+                    byte dia, mes, ano;
+                    String consulta;
+                    System.out.println("Ingrese el folio del cliente: ");
+                    folio = scanner.nextInt();
+                    boolean auxiliar = false;
+                    if ( aux == listaClientes.isEmpty()) {
+                        do {
+                            for (int i = 0; i < listaClientes.size() && !auxiliar; i++) {
+                                if (folio == listaClientes.get(i).getFolio()) {
+                                    auxiliar = true;
+                                    opAux = i;
+                                    System.out.println("Folio encontrado: " + listaClientes.get(opAux).getFolio());
+                                    System.out.println("El cliente es: "+listaClientes.get(opAux).getNombre());
+                                    System.out.println("Ingrese el dia: ");
+                                    dia = scanner.nextByte();
+                                    System.out.println("Ingrese el mes: ");
+                                    mes = scanner.nextByte();
+                                    System.out.println("Ingrese el año: ");
+                                    ano = scanner.nextByte();
+                                    System.out.println("Ingrese el diagnostico de la mascota: ");
+                                    consulta = scanner.nextLine();
+                                    scanner.next();
+                                    Diagnostico diagnostico = new Diagnostico(dia, mes, ano, consulta);
+                                    listaClientes.get(opAux).listaAnimales.get(opAux).getHistorialClinico().listaDiagnosticos.add(diagnostico);
+                                    System.out.println("El padecimiento de la mascota es: " + listaClientes.get(opAux).listaAnimales.get(opAux).getHistorialClinico().listaDiagnosticos.get(opAux).getDiagnostico());
+                                    System.out.println("El dueño de la mascota es: " + listaClientes.get(opAux).getNombre());
+                                } else {
+                                    auxiliar = false;
+                                    System.out.println("Folio no encontrado");
+                                }
+                            }
+                        } while (auxiliar = false);
+                    }else
+                        System.out.println("No hay clientes registrados");
+                }
                 ganancia = listaServicios.get(auxOp).getPrecio();
                 administrador(ganancia,0.0f);
                break;
