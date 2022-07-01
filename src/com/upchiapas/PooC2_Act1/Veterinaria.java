@@ -8,9 +8,14 @@ import java.util.Scanner;
 
 public class Veterinaria {
     static ArrayList<Producto> listaProductos = new ArrayList<>();
+    static  ArrayList<Servicio> listaServicios = new ArrayList<>();
     static ArrayList<Cliente> listaClientes = new ArrayList<>();
     static Scanner entrada = new Scanner(System.in);
     public static void main(String[] args) {
+        Servicio servicio1 = new Servicio("Baño de mascota",300.0f);
+        Servicio servicio2 = new Servicio("Consulta medica", 250.0f);
+        Servicio servicio3 = new Servicio("Aplicacion de medicamento",50);
+        Servicio servicio4 = new Servicio("Inseminacion artificial",680.0f);
         Producto producto1 = new Producto("Alimento",30.0f,"Nupec",100);
         Producto producto2 = new Producto("Collar",75.0f,"Perro consentido",30);
         Producto producto3 = new Producto("Cepillo",45.0f,"Doggy",65);
@@ -201,6 +206,32 @@ public class Veterinaria {
         stock = scanner.nextInt();
         Producto nuevoProducto = new Producto(nombre,precio,marca, stock);
         listaProductos.add(nuevoProducto);
+    }
+    public static void menuServicios(){
+        Scanner scanner = new Scanner(System.in);
+        int opcionM;
+        System.out.println("1. Elegir servicios existentes ");
+        System.out.println("2. Agregar servicios ");
+        System.out.println("Ingrese la opcion deseada: ");
+        opcionM = scanner.nextInt();
+        switch (opcionM){
+            case 1:
+
+                System.out.println("Los productos existentes son: ");
+                for (int i=0; i < listaProductos.size();i++){
+                    System.out.println((i+1) + ". Nombre: "+ listaProductos.get(i).getNombre()+ " Precio: $"+listaProductos.get(i).getPrecio()+" Marca: "+listaProductos.get(i).getMarca()+" Stock: "+listaProductos.get(i).getStock());
+                }
+                break;
+            case 2:
+                agregarServicios();
+                break;
+            default:
+                System.out.println("Opcion incorrecta");
+                System.out.println("Intente de nuevo");
+        }
+    }
+    public static void agregarServicios(){
+
     }
 
 
